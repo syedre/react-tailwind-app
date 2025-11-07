@@ -1,17 +1,22 @@
 import React, { Suspense, use } from "react";
+import { Link } from "react-router-dom";
+import Slow from "../components/example";
 
-const Home = () => {
+function Home() {
   return (
     <>
       <div className="grid grid-cols-3 grid-rows-4 gap-2 min-h-screen bg-stone-300">
-        <div className="bg-amber-50">1</div>
+        <div className="bg-amber-50">
+          <nav className="flex gap-4 p-4 bg-gray-200">
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
+        </div>
         <div className="bg-amber-50">2</div>
         <div className="bg-amber-50">3</div>
         <div className="bg-amber-50">4</div>
         <div className="bg-amber-50 row-span-3">
-          <Suspense fallback={<div>loading .......</div>}>
-            <Slow />
-          </Suspense>
+          <Slow />
         </div>
         <div className="bg-amber-50 ">6</div>
         <div className="bg-amber-50  row-start-4">7</div>
@@ -19,16 +24,6 @@ const Home = () => {
       </div>
     </>
   );
-};
-
-async function getData() {
-  await new Promise((resolve) => setTimeout(resolve("yes"), 4000));
-  return "yeah";
-}
-
-function Slow() {
-  const data = use(getData());
-  return <div>{JSON.stringify(data)}</div>;
 }
 
 export default Home;
