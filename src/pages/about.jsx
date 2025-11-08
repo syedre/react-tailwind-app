@@ -5,7 +5,7 @@ const About = () => {
     <div>
       <div>About</div>
       <Link to="/">
-        <button>back to home</button>
+        <button className="text-blue-300"> back to home</button>
       </Link>
     </div>
   );

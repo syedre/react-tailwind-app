@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: var(--background);
+}
+
+:root {
+  --background: white;
+}
+.dark {
+  --background: oklch(21.098% 0.03474 234.092);
+}
