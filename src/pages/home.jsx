@@ -2,6 +2,7 @@ import React, { Suspense, use, useState } from "react";
 import { Link } from "react-router-dom";
 import Slow from "../components/example";
 import { Moon, Sun } from "lucide-react";
+import Counter from "../components/Reducer";
 
 function Home() {
   const [isDark, setDark] = useState(false);
@@ -33,7 +34,9 @@ function Home() {
         </div>
         <div className="rounded-full ">{isDark ? <Sun /> : <Moon />}</div>
         <div className="bg-amber-50  row-start-4">7</div>
-        <div className="bg-amber-50 col-start-3 row-start-4">8</div>
+        <div className="bg-amber-50 col-start-3 row-start-4">
+          <Counter />
+        </div>
       </div>
     </div>
   );
