@@ -1,7 +1,7 @@
 import { Suspense, use, useState } from "react";
 import "./App.css";
-import Home from "./pages/home";
-import About from "./pages/about";
+import Home from "@/pages/home";
+import About from "@/pages/about";
 import { Route, Routes } from "react-router-dom";
 
 function App() {

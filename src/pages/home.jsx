@@ -1,8 +1,8 @@
 import React, { Suspense, use, useState } from "react";
 import { Link } from "react-router-dom";
-import Slow from "../components/example";
+import Slow from "@/components/example";
 import { Moon, Sun } from "lucide-react";
-import Counter from "../components/Reducer";
+import Counter from "@/components/Reducer";
 import { useSelector } from "react-redux";
 
 function Home() {
