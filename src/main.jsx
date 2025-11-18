@@ -15,6 +15,3 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </StrictMode>
 );
-
-// added few commits lets see
-// added after revert
