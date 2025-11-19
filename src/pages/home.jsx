@@ -4,10 +4,13 @@ import Slow from "../components/example";
 import { Moon, Sun } from "lucide-react";
 import Counter from "../components/Reducer";
 import { useSelector } from "react-redux";
+import { useDebounce } from "../hooks/debounce";
 
 function Home() {
   const [isDark, setDark] = useState(false);
+  const [search, setSearch] = useState("");
   const data = useSelector((state) => state.count.value);
+  const [searchData] = useDebounce(search, 3000);
 
   function toogle() {
     setDark(!isDark);
@@ -39,6 +42,13 @@ function Home() {
         <div className="bg-amber-50  row-start-4">{data} redux</div>
         <div className="bg-amber-50 col-start-3 row-start-4">
           <Counter />
+          <input
+            placeholder="search "
+            className="border border-red-300"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          {JSON.stringify(searchData)}
         </div>
       </div>
     </div>
