@@ -1,5 +1,17 @@
 import React, { useEffect, useState } from "react";
 
+const ButtonComponent = ({ data }) => {
+  const [showPrice, setshowPrice] = useState(false);
+  return (
+    <div>
+      <button onClick={() => setshowPrice(!showPrice)}>
+        {data?.title.slice(0, 10)}
+      </button>
+      {showPrice === true && <div>{data?.price}</div>}
+    </div>
+  );
+};
+
 const Question = () => {
   const [data, setData] = useState([]);
 
@@ -28,7 +40,7 @@ const Question = () => {
 
   return (
     <div>
-      {data &&
+      {/* {data &&
         data?.map((i) => {
           return (
             <div>
@@ -38,7 +50,8 @@ const Question = () => {
               {i?.showPrice === true && <div>{i?.price}</div>}
             </div>
           );
-        })}
+        })} */}
+      {data && data?.map((i) => <ButtonComponent data={i} />)}
     </div>
   );
 };

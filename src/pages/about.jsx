@@ -4,6 +4,7 @@ import Content from "../components/sample";
 import { useDispatch } from "react-redux";
 import { increment } from "../redux-slice/counter-slice";
 import Question from "../components/interview";
+import Example from "../components/testx";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,8 @@ const About = () => {
   return (
     <div>
       <div>About</div>
-      <Question />
+      <Example />
+      {/* <Question /> */}
       {/* <Content />
 
       <Link to="/">
