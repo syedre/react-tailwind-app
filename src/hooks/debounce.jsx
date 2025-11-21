@@ -17,7 +17,7 @@ export const useDebounce = (search, delay) => {
     return () => {
       clearTimeout(timer);
     };
-  });
+  }, []);
 
   return [searchData];
 };
