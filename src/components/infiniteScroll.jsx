@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 const InfiniteScroll = () => {
   const [data, setData] = useState([]);
-  const [limit, setLimit] = useState(15);
+  const [skip, setSkip] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const divRef = useRef();
+  let limit = 10;
 
   const styles = {
     boxq: {
@@ -16,11 +17,10 @@ const InfiniteScroll = () => {
     setIsLoading(true);
 
     const response = await fetch(
-      `https://dummyjson.com/users?limit=${limit}&select=firstName,age `
+      `https://dummyjson.com/users?limit=${limit}&skip=${skip}&select=firstName,age `
     );
     const result = await response.json();
-    const users = result?.users;
-    setData([...users]);
+    setData((prev) => [...prev, ...result.users]);
     setIsLoading(false);
   }
 
@@ -29,13 +29,13 @@ const InfiniteScroll = () => {
     const visibleHeight = divRef?.current?.clientHeight;
     const scrollTop = divRef?.current?.scrollTop;
     if (visibleHeight + scrollTop + 1 > totalScrollHeight && !isLoading) {
-      setLimit(limit + 15);
+      setSkip((prev) => prev + limit);
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, [limit]);
+  }, [skip]);
 
   return (
     <div
@@ -45,7 +45,9 @@ const InfiniteScroll = () => {
       ref={divRef}
     >
       <div>Infinite scroll</div>
-      <div>{data && data?.map((i) => <div>{i?.firstName}</div>)}</div>
+      <div>
+        {data && data?.map((i) => <div className={"h-8"}>{i?.firstName}</div>)}
+      </div>
       {isLoading === true && <div>loading....</div>}
     </div>
   );
