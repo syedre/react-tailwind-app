@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { increment } from "../redux-slice/counter-slice";
 import Question from "../components/interview";
 import Example from "../components/testx";
+import Slow from "../components/example";
+import InfiniteScroll from "../components/infiniteScroll";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -12,7 +14,7 @@ const About = () => {
   return (
     <div>
       <div>About</div>
-      <Example />
+      <InfiniteScroll />
       {/* <Question /> */}
       {/* <Content />
 
