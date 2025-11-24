@@ -8,6 +8,8 @@ import Example from "../components/testx";
 import Slow from "../components/example";
 import InfiniteScroll from "../components/infiniteScroll";
 import GridColor from "../components/grid";
+import Counter from "../components/counter";
+// import Counter from "../components/Reducer";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ const About = () => {
       <div>About</div>
       <InfiniteScroll />
       <GridColor />
+      <Counter />
       {/* <Question /> */}
       {/* <Content />
 
