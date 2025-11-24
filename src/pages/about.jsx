@@ -7,6 +7,7 @@ import Question from "../components/interview";
 import Example from "../components/testx";
 import Slow from "../components/example";
 import InfiniteScroll from "../components/infiniteScroll";
+import GridColor from "../components/grid";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const About = () => {
     <div>
       <div>About</div>
       <InfiniteScroll />
+      <GridColor />
       {/* <Question /> */}
       {/* <Content />
 
